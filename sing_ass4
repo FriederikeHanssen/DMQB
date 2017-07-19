@@ -1,11 +1,14 @@
-Bootstrap: docker
-From: ubuntu:latest
+Bootstrap:docker
+From:centos:latest
 
 %post
-
-	apt-get update
-	apt-get install bwa
+    yum -y update
+    yum -y upgrade
+    yum -y install wget
+    wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+    yum -y install epel-release-latest-7.noarch.rpm
+    yum -y install bwa
 
 %runscript
-	
+    
 	exec /usr/bin/bwa "$@"
