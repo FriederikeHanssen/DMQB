@@ -1,0 +1,11 @@
+BootStrap: docker
+From: ubuntu:latest
+
+%post
+
+	apt-get update
+	apt-get install bwa
+
+%runscript
+	
+	exec /usr/bin/bwa "$@"
